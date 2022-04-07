@@ -16,26 +16,16 @@ import cartopy
 import cartopy.crs as ccrs
 #from cartopy.io import shapereader as shpreader
 from cartopy.io import shapereader #SERVE PARA LER ARQYUIVOS SHAPEFILES, DO IBGE, INDIE, ANP, ANA
-
-
-#diretorio = "E:\\AECO\\MAPA DE VENTO\\dados\\era5_teste_quiver3.nc" #CHAMANDO DIRETORIO
-#diretorio = "E:\\AECO\\MAPA DE VENTO\\dados\\era5_teste_quiver4_RJ.nc"
+##
 diretorio = "E:\\AECO\\MAPA DE VENTO\\dados\\CERSAT-GLO-BLENDED_WIND_L4-V6-OBS_FULL_TIME_SERIE_1611341478239.nc" #WIND_GLO_WIND_L4_NRT_OBSERVATIONS_012_004
-
 data = Dataset(diretorio, mode='r')
 print(data)
 
-#longitude e latitude 
-#lon  = data.variables['longitude'][:] #ERA
-#lat  = data.variables['latitude'][:] #ERA
 #
 lon  = data.variables['lon'][:] #CMEMS
 lat  = data.variables['lat'][:] #CMEMS
 
 #Ventos
-#u10 = data.variables['u10'][:] #ERA
-#v10 = data.variables['v10'][:] #ERA
-
 u10 = data.variables['northward_wind'][:] #CMEMS
 v10 = data.variables['eastward_wind'][:] #CMEMS
 
